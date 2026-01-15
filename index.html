@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XADDERS | Street & Underground</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Anton&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+/* ===== FONDO UNDERGROUND ===== */
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#fff;
+  overflow-x:hidden;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.02) 0px,
+      rgba(255,255,255,.02) 1px,
+      transparent 1px,
+      transparent 6px
+    ),
+    radial-gradient(circle at top,#111,#000 70%);
+}
+
+/* ===== GLITCH ===== */
+@keyframes glitch{
+  0%{text-shadow:2px 2px red}
+  20%{text-shadow:-2px -2px white}
+  40%{text-shadow:2px -2px red}
+  60%{text-shadow:-2px 2px white}
+  100%{text-shadow:2px 2px red}
+}
+
+/* ===== PRELOADER ===== */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+#loader h1{
+  font-family:'Rubik Dirt';
+  font-size:60px;
+  animation:glitch 1s infinite;
+}
+
+/* ===== HEADER ===== */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 30px;
+  background:#000;
+  border-bottom:2px solid #d60000;
+}
+header img{height:50px}
+
+/* ===== NAV ===== */
+nav a{
+  position:relative;
+  margin-left:28px;
+  padding-left:22px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+nav a::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:2px;
+  height:18px;
+  background:#444;
+}
+nav a:first-child::before{display:none}
+nav a:hover{color:#d60000}
+nav a:hover::before{background:#d60000}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:170px 20px;
+}
+.hero-logo{
+  font-family:'Rubik Dirt';
+  font-size:110px;
+  animation:glitch 2s infinite;
+}
+.hero-logo span{color:#d60000}
+.hero p{font-size:22px;margin:20px 0}
+.hero button{
+  margin:15px;
+  padding:18px 40px;
+  font-size:20px;
+  background:transparent;
+  color:#fff;
+  border:2px solid #fff;
+  cursor:pointer;
+}
+.hero button:hover{
+  background:#d60000;
+  border-color:#d60000;
+}
+
+/* ===== SECCIONES ===== */
+.section{
+  display:none;
+  padding:90px 20px;
+  animation:fadeUp .7s ease;
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ===== CATÁLOGO ===== */
+.menu{text-align:center;margin-bottom:45px}
+.menu button{
+  margin:10px;
+  padding:20px 34px;
+  font-size:22px;
+  font-family:'Anton';
+  background:#000;
+  color:#fff;
+  border:2px solid #fff;
+  cursor:pointer;
+}
+.menu button:hover{
+  background:#d60000;
+  border-color:#d60000;
+}
+
+/* ===== GRID ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:#fff;
+  color:#000;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  text-align:center;
+}
+.card img{
+  width:100%;
+  height:320px;
+  object-fit:cover;
+  cursor:pointer;
+}
+.card p{
+  font-weight:bold;
+  margin:12px 0;
+}
+.card a{
+  margin-top:auto;
+  padding:10px 18px;
+  border:2px solid #000;
+  text-decoration:none;
+  color:#000;
+}
+.card a:hover{
+  background:#000;
+  color:#fff;
+}
+
+/* ===== QUIÉNES SOMOS ===== */
+.quienes-title{
+  font-family:'Anton';
+  font-size:60px;
+  text-align:center;
+  margin-bottom:35px;
+  animation:glitch 2s infinite;
+}
+.quienes-text{
+  max-width:950px;
+  margin:auto;
+  text-align:center;
+  font-size:24px;
+  line-height:1.9;
+}
+
+/* ===== CONTACTO ===== */
+#contacto{text-align:center}
+#contacto a{
+  display:block;
+  max-width:260px;
+  margin:15px auto;
+  padding:14px;
+  border:2px solid #fff;
+  color:#fff;
+  text-decoration:none;
+}
+#contacto a:hover{
+  background:#d60000;
+  border-color:#d60000;
+}
+
+/* ===== MODAL ===== */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.95);
+  justify-content:center;
+  align-items:center;
+}
+.modal img{max-width:95%;max-height:95%}
+.modal span{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:40px;
+  cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#000;
+  text-align:center;
+  padding:15px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader"><h1>XADDERS</h1></div>
+
+<header>
+<img src="logo-xadders.png">
+<nav>
+<a onclick="show('inicio')">Inicio</a>
+<a onclick="show('catalogo')">Catálogo</a>
+<a onclick="show('ofertas')">Ofertas</a>
+<a onclick="show('quienes')">Quiénes somos</a>
+<a onclick="show('contacto')">Contacto</a>
+<a href="https://www.instagram.com/xadderscom/" target="_blank">Instagram</a>
+</nav>
+</header>
+
+<section id="inicio" class="hero section" style="display:block">
+<div class="hero-logo">X<span>ADDERS</span></div>
+<p>Streetwear sin reglas · Underground real</p>
+<button onclick="show('catalogo')">CATÁLOGO</button>
+<button onclick="show('ofertas')">OFERTAS</button>
+</section>
+
+<section id="catalogo" class="section">
+<h2 style="text-align:center;font-family:'Anton'">CATÁLOGO</h2>
+
+<div class="menu">
+<button onclick="load('Hoodies')">HOODIES</button>
+<button onclick="load('Conjuntos')">CONJUNTOS</button>
+<button onclick="load('Gorras')">GORRAS</button>
+<button onclick="load('Camisas')">CAMISAS</button>
+<button onclick="load('Zapatos')">ZAPATOS</button>
+<button onclick="load('Relojes')">RELOJES</button>
+<button onclick="load('Bolsos')">BOLSOS</button>
+<button onclick="load('Billeteras')">BILLETERAS</button>
+</div>
+
+<h3 id="title" style="text-align:center"></h3>
+<p id="desc" style="text-align:center;max-width:800px;margin:auto"></p>
+<div class="grid" id="grid"></div>
+</section>
+
+<section id="ofertas" class="section">
+<h2 style="text-align:center;font-family:'Anton'">OFERTAS</h2>
+<p style="text-align:center">✖✖ DROP LIMITADO ✖✖</p>
+</section>
+
+<section id="quienes" class="section">
+<h2 class="quienes-title">QUIÉNES SOMOS</h2>
+<p class="quienes-text">
+XADDERS es una compañía freelancer enfocada en la venta de productos de moda
+con identidad street y underground.<br><br>
+No seguimos tendencias. Creamos actitud.
+</p>
+</section>
+
+<section id="contacto" class="section">
+<h2 style="font-family:'Anton'">CONTACTO</h2>
+<a href="https://wa.me/573156941090">WhatsApp 315 694 1090</a>
+<a href="https://wa.me/573106154908">WhatsApp 310 615 4908</a>
+</section>
+
+<footer>© XADDERS 2026</footer>
+
+<div class="modal" id="modal">
+<span onclick="closeModal()">&times;</span>
+<img id="modalImg">
+</div>
+
+<script>
+window.onload=()=>setTimeout(()=>loader.style.display='none',800)
+
+const descriptions={
+  Hoodies:"Hoodies urbanos con actitud underground.",
+  Conjuntos:"Sets completos para flow callejero.",
+  Gorras:"Accesorios clave del streetwear.",
+  Camisas:"Camisas con esencia street.",
+  Zapatos:"Calzado urbano listo para la calle.",
+  Relojes:"Detalles que elevan el outfit.",
+  Bolsos:"Funcionalidad con estilo urbano.",
+  Billeteras:"Diseño compacto con actitud street."
+}
+
+const catalogo={
+  Hoodies:{inicio:1,cantidad:12},
+  Conjuntos:{inicio:27,cantidad:8},
+  Gorras:{inicio:101,cantidad:15},
+  Camisas:{inicio:141,cantidad:10},
+  Zapatos:{inicio:201,cantidad:9},
+  Relojes:{inicio:271,cantidad:4},
+  Bolsos:{inicio:301,cantidad:6},
+  Billeteras:{inicio:351,cantidad:5}
+}
+
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.style.display='none')
+  document.getElementById(id).style.display='block'
+}
+
+function load(name){
+  title.innerText=name
+  desc.innerText=descriptions[name]
+  grid.innerHTML=''
+
+  let start=catalogo[name].inicio
+  let total=catalogo[name].cantidad
+
+  for(let i=start;i<start+total;i++){
+    grid.innerHTML+=`
+    <div class="card">
+      <img src="producto${i}.jpg" onclick="openModal(this.src)">
+      <p>${name} XADDERS</p>
+      <a href="https://wa.me/${i%2?573156941090:573106154908}">PREGUNTAR</a>
+    </div>`
+  }
+}
+
+function openModal(src){
+  modal.style.display='flex'
+  modalImg.src=src
+}
+function closeModal(){
+  modal.style.display='none'
+}
+</script>
+
+</body>
+</html>
+

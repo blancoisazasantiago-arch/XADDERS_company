@@ -10,7 +10,6 @@
 <style>
 *{box-sizing:border-box}
 
-/* ===== FONDO UNDERGROUND ===== */
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
@@ -27,7 +26,7 @@ body{
     radial-gradient(circle at top,#111,#000 70%);
 }
 
-/* ===== GLITCH ===== */
+/* GLITCH */
 @keyframes glitch{
   0%{text-shadow:2px 2px red}
   20%{text-shadow:-2px -2px white}
@@ -36,7 +35,7 @@ body{
   100%{text-shadow:2px 2px red}
 }
 
-/* ===== PRELOADER ===== */
+/* PRELOADER */
 #loader{
   position:fixed;
   inset:0;
@@ -52,7 +51,7 @@ body{
   animation:glitch 1s infinite;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 header{
   display:flex;
   justify-content:space-between;
@@ -63,7 +62,7 @@ header{
 }
 header img{height:50px}
 
-/* ===== NAV ===== */
+/* NAV */
 nav a{
   position:relative;
   margin-left:28px;
@@ -71,6 +70,7 @@ nav a{
   color:#fff;
   text-decoration:none;
   font-weight:bold;
+  font-size:16px;
 }
 nav a::before{
   content:"";
@@ -86,7 +86,7 @@ nav a:first-child::before{display:none}
 nav a:hover{color:#d60000}
 nav a:hover::before{background:#d60000}
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   text-align:center;
   padding:170px 20px;
@@ -112,7 +112,7 @@ nav a:hover::before{background:#d60000}
   border-color:#d60000;
 }
 
-/* ===== SECCIONES ===== */
+/* SECCIONES */
 .section{
   display:none;
   padding:90px 20px;
@@ -123,7 +123,7 @@ nav a:hover::before{background:#d60000}
   to{opacity:1;transform:translateY(0)}
 }
 
-/* ===== CATÁLOGO ===== */
+/* CATÁLOGO */
 .menu{text-align:center;margin-bottom:45px}
 .menu button{
   margin:10px;
@@ -140,14 +140,14 @@ nav a:hover::before{background:#d60000}
   border-color:#d60000;
 }
 
-/* ===== GRID ===== */
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 .card{
   background:#fff;
   color:#000;
@@ -173,68 +173,8 @@ nav a:hover::before{background:#d60000}
   text-decoration:none;
   color:#000;
 }
-.card a:hover{
-  background:#000;
-  color:#fff;
-}
 
-/* ===== QUIÉNES SOMOS ===== */
-.quienes-title{
-  font-family:'Anton';
-  font-size:60px;
-  text-align:center;
-  margin-bottom:35px;
-  animation:glitch 2s infinite;
-}
-.quienes-text{
-  max-width:950px;
-  margin:auto;
-  text-align:center;
-  font-size:24px;
-  line-height:1.9;
-}
 
-/* ===== CONTACTO ===== */
-#contacto{text-align:center}
-#contacto a{
-  display:block;
-  max-width:260px;
-  margin:15px auto;
-  padding:14px;
-  border:2px solid #fff;
-  color:#fff;
-  text-decoration:none;
-}
-#contacto a:hover{
-  background:#d60000;
-  border-color:#d60000;
-}
-
-/* ===== MODAL ===== */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.95);
-  justify-content:center;
-  align-items:center;
-}
-.modal img{max-width:95%;max-height:95%}
-.modal span{
-  position:absolute;
-  top:20px;
-  right:30px;
-  font-size:40px;
-  cursor:pointer;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#000;
-  text-align:center;
-  padding:15px;
-  color:#777;
-}
 </style>
 </head>
 
@@ -247,7 +187,6 @@ footer{
 <nav>
 <a onclick="show('inicio')">Inicio</a>
 <a onclick="show('catalogo')">Catálogo</a>
-<a onclick="show('ofertas')">Ofertas</a>
 <a onclick="show('quienes')">Quiénes somos</a>
 <a onclick="show('contacto')">Contacto</a>
 <a href="https://www.instagram.com/xadderscom/" target="_blank">Instagram</a>
@@ -265,14 +204,14 @@ footer{
 <h2 style="text-align:center;font-family:'Anton'">CATÁLOGO</h2>
 
 <div class="menu">
-<button onclick="load('Hoodies')">HOODIES</button>
-<button onclick="load('Conjuntos')">CONJUNTOS</button>
-<button onclick="load('Gorras')">GORRAS</button>
-<button onclick="load('Camisas')">CAMISAS</button>
-<button onclick="load('Zapatos')">ZAPATOS</button>
-<button onclick="load('Relojes')">RELOJES</button>
-<button onclick="load('Bolsos')">BOLSOS</button>
-<button onclick="load('Billeteras')">BILLETERAS</button>
+<button onclick="load('Hoodies',1,26)">HOODIES</button>
+<button onclick="load('Conjuntos',27,73)">CONJUNTOS</button>
+<button onclick="load('Gorras',101,37)">GORRAS</button>
+<button onclick="load('Camisas',151,47)">CAMISAS</button>
+<button onclick="load('Zapatos',201,50)">ZAPATOS</button>
+<button onclick="load('Relojes',251,10)">RELOJES</button>
+<button onclick="load('Bolsos',301,24)">BOLSOS</button>
+<button onclick="load('Billeteras',351,10)">BILLETERAS</button>
 </div>
 
 <h3 id="title" style="text-align:center"></h3>
@@ -288,8 +227,11 @@ footer{
 <section id="quienes" class="section">
 <h2 class="quienes-title">QUIÉNES SOMOS</h2>
 <p class="quienes-text">
-XADDERS es una compañía freelancer enfocada en la venta de productos de moda
-con identidad street y underground.<br><br>
+XADDERS es una marca independiente de moda urbana enfocada en el estilo streetwear y underground. Nacemos de la calle y para la calle, creando una propuesta que rompe con lo convencional y contrasta con la moda tradicional.<br><br>
+
+Trabajamos con prendas y accesorios como hoodies, conjuntos, camisas, gorras, zapatos, relojes y bolsos, seleccionados para quienes buscan identidad, actitud y presencia en cada outfit. Nuestro enfoque combina diseño, comodidad y carácter, reflejando una estética juvenil, rebelde y auténtica.<br><br>
+
+En XADDERS creemos que la ropa no solo se usa: se representa. Por eso construimos una marca que expresa libertad, personalidad y estilo propio.<br><br>
 No seguimos tendencias. Creamos actitud.
 </p>
 </section>
@@ -311,59 +253,43 @@ No seguimos tendencias. Creamos actitud.
 window.onload=()=>setTimeout(()=>loader.style.display='none',800)
 
 const descriptions={
-  Hoodies:"Hoodies urbanos con actitud underground.",
-  Conjuntos:"Sets completos para flow callejero.",
-  Gorras:"Accesorios clave del streetwear.",
-  Camisas:"Camisas con esencia street.",
-  Zapatos:"Calzado urbano listo para la calle.",
-  Relojes:"Detalles que elevan el outfit.",
-  Bolsos:"Funcionalidad con estilo urbano.",
-  Billeteras:"Diseño compacto con actitud street."
-}
-
-const catalogo={
-  Hoodies:{inicio:1,cantidad:12},
-  Conjuntos:{inicio:27,cantidad:8},
-  Gorras:{inicio:101,cantidad:15},
-  Camisas:{inicio:141,cantidad:10},
-  Zapatos:{inicio:201,cantidad:9},
-  Relojes:{inicio:271,cantidad:4},
-  Bolsos:{inicio:301,cantidad:6},
-  Billeteras:{inicio:351,cantidad:5}
+Hoodies:"Hoodies urbanos con actitud underground.",
+Conjuntos:"Sets completos para flow callejero.",
+Gorras:"Accesorios clave del streetwear.",
+Camisas:"Camisas con esencia street.",
+Zapatos:"Calzado urbano listo para la calle.",
+Relojes:"Detalles que elevan el outfit.",
+Bolsos:"Funcionalidad con estilo urbano.",
+Billeteras:"Diseño compacto con actitud street."
 }
 
 function show(id){
-  document.querySelectorAll('.section').forEach(s=>s.style.display='none')
-  document.getElementById(id).style.display='block'
+document.querySelectorAll('.section').forEach(s=>s.style.display='none')
+document.getElementById(id).style.display='block'
 }
 
-function load(name){
-  title.innerText=name
-  desc.innerText=descriptions[name]
-  grid.innerHTML=''
-
-  let start=catalogo[name].inicio
-  let total=catalogo[name].cantidad
-
-  for(let i=start;i<start+total;i++){
-    grid.innerHTML+=`
-    <div class="card">
-      <img src="producto${i}.jpg" onclick="openModal(this.src)">
-      <p>${name} XADDERS</p>
-      <a href="https://wa.me/${i%2?573156941090:573106154908}">PREGUNTAR</a>
-    </div>`
-  }
+function load(nombre,inicio,cantidad){
+title.innerText=nombre
+desc.innerText=descriptions[nombre]
+grid.innerHTML=''
+for(let i=inicio;i<inicio+cantidad;i++){
+grid.innerHTML+=`
+<div class="card">
+<img src="producto${i}.jpg" onclick="openModal(this.src)">
+<p>${nombre} XADDERS</p>
+<a href="https://wa.me/573156941090">PREGUNTAR</a>
+</div>`
+}
 }
 
 function openModal(src){
-  modal.style.display='flex'
-  modalImg.src=src
+modal.style.display='flex'
+modalImg.src=src
 }
 function closeModal(){
-  modal.style.display='none'
+modal.style.display='none'
 }
 </script>
 
 </body>
 </html>
-
